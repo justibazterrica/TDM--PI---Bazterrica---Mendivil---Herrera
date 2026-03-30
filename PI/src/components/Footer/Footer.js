@@ -1,9 +1,9 @@
-import React from "react";
-
 function Footer() {
   return (
-    <footer>
-      <p>Integrantes: Justina Bazterrica - Catalina Mendívil - Camila Herrera Posse</p>
+    <footer class="alert alert-primary mt-4 text-center">
+      <p className="mb-0">
+        Justina Bazterrica | Catalina Mendívil | Camila Herrera Posse
+      </p>
     </footer>
   );
 }
