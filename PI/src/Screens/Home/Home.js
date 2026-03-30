@@ -1,9 +1,14 @@
 import React from 'react'
+import Buscador from "../../components/Buscador/Buscador";
+
 
 export default function Home() {
   return (
-    <div>
-      
-    </div>
+    <React.Fragment>
+
+        <Buscador />
+
+
+    </React.Fragment>
   )
 }

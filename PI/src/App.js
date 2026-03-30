@@ -1,16 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
+
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import React from 'react';
-import Home from './screens/Home';
-import NotFound from "./screens/NotFound/Notfound";
+import Home from './Screens/Home/Home';
+import NotFound from "./Screens/NotFound/NotFound";
 import {Switch, Route} from "react-router-dom";
 
 
 function App() {
   return (
     <React.Fragment>
+
       <Header />
 
       <Switch>
@@ -20,6 +20,7 @@ function App() {
       </Switch>
 
       <Footer/> 
+
     </React.Fragment>
   );
 }
