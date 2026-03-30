@@ -25,8 +25,10 @@ class Buscador extends Component {
     return (
       <div>
         <form onsubmit = {(event) => this.onSubmit(event)}>
+
+          <button type="submit">Buscar  </button>
           <input on change = {(event) => this.guardarBusqueda(event)}/>
-          <botton type="submit">Buscar </botton>
+
         </form>
       </div>
     )
