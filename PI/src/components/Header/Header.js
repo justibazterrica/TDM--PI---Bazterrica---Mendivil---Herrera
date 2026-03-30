@@ -1,7 +1,10 @@
 function Header() {
   return (
     <header>
-      <h1>UdeSA Movies</h1>
+      <div>
+        <img src="/img/logo.png" alt="logo" className="logo" />
+        <h1>UdeSA Movies</h1>
+      </div>
 
       <nav>
         <ul class="nav nav-tabs my-4">
