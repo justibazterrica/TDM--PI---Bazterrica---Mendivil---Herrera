@@ -5,9 +5,9 @@ import React from 'react';
 import Home from './Screens/Home/Home';
 import NotFound from "./Screens/NotFound/NotFound";
 import {Switch, Route} from "react-router-dom";
-import SeccionSeries from './components/SeccionSeries/SeccionSeries';
+import Series from './Screens/Series/Series';
 import Login from './Screens/Login/Login';
-import SeccionPeliculas from './components/SeccionPeliculas/SeccionPeliculas';
+import Peliculas from './Screens/Peliculas/Peliculas';
 
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
 
       <Switch>
         <Route path="/" exact={true} component={Home}/>
-        <Route path="/series" component={SeccionSeries}/>
+        <Route path="/series" component={Series}/>
         <Route path="/login" component={Login}/>
-        <Route path="/peliculas" component={SeccionPeliculas}/>
+        <Route path="/movies" component={Peliculas}/>
         <Route path="*" component={NotFound}/>
       
       </Switch>
