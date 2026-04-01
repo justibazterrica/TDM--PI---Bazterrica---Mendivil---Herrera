@@ -9,6 +9,7 @@ import {Switch, Route} from "react-router-dom";
 import Series from './Screens/Series/Series';
 import Login from './Screens/Login/Login';
 import Peliculas from './Screens/Peliculas/Peliculas';
+import Detalles from './Screens/Detalle/Detalle';
 
 
 function App() {
@@ -22,9 +23,8 @@ function App() {
         <Route path="/series" component={Series}/>
         <Route path="/login" component={Login}/>
         <Route path="/movies" component={Peliculas}/>
+        <Route path="/Detalle" component={Detalles}/>
         <Route path="*" component={NotFound}/>
-        <Route path="/Detalle" component={Detalle}/>
-      
       </Switch>
 
       <Footer/> 

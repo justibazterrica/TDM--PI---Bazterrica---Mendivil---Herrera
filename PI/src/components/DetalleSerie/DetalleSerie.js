@@ -1,37 +1,46 @@
 import React, { Component } from 'react'
 import './DetalleSerie.css'
+import Serie from '../Serie/Serie'
 
 class DetalleSerie extends Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            series: null
+        }
     }
+
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/tv/${this.props.id}?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c`)
+        
+        const id = this.props.match.params.id
+        
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c&language=es-ES`)
         .then(response => response.json())
         .then(data => {
-            this.setState({ serie: data })
+            this.setState({ series: data })
         })
         .catch(error => console.log(error))
     }
 
-  render() {
-    return (
-    <section>
-        <h2 className="alert alert-warning">{this.state.serie.name}</h2>
-        <section className="row">
-            <section className="col-md-6 info">
-                <p className="mt-0 mb-0" id="release-date"><strong>Calificacion: </strong> {this.state.serie.popularity}</p>
-                <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong> {this.state.serie.first_air_date}</p>
-                <h3>Descripcion</h3>
-                <p className="description"><strong>Sinopsis:</strong>{this.state.serie.overview}</p>
-                <p className="mt-0 mb-0" id="release-date"><strong>Genero: </strong>{this.state.serie.genres.name} </p>
-            </section>
-            <img className="col-md-6" src={`https://image.tmdb.org/t/p/w500/${this.state.serie.backdrop_path}`} alt={this.state.serie.name} />
-        </section>
-    </section>
-    )
-  }
+    render() {
+        const { series } = this.state
+        if (!series) {
+            return <h3>Cargando...</h3>
+        }
+        return (
+            <div>
+                <Serie
+                    id={series.id}
+                    name={series.name}
+                    calificacion={series.vote_average}
+                    estreno={series.first_air_date}
+                    sinopsis={series.overview}
+                    genero={series.genres ? series.genres.map(g => g.name).join(", ") : "Sin género"}
+                    img={series.poster_path}
+                />
+            </div>
+        )
+    }
 }
 
 export default DetalleSerie

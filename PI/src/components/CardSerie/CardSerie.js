@@ -28,7 +28,7 @@ class SerieCard  extends Component {
                <section className="info">
             
                   <p className= {'extra-info ' + (this.state.verMenos ? 'false' : 'true') }>  {this.props.overview} </p>
-                  <Link to={`/UnPersonaje/id/${this.props.id}`} className="link"> Ir a detalle</Link>
+                  <Link to={`/Detalle/serie/${this.props.id}`} className="link"> Ir a detalle</Link>
               </section>
 
 		        <button className="ver-mas" onClick={() => this.clickVerMenos()} >

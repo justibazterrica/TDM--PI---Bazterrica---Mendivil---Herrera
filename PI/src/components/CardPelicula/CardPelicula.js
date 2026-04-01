@@ -28,7 +28,7 @@ class PeliculaCard  extends Component {
                <section className="info">
             
                   <p className= {'extra-info ' + (this.state.verMenos ? 'false' : 'true') }>  {this.props.overview} </p>
-                  <Link to={`/UnPersonaje/id/${this.props.id}`} className="link"> Ir a detalle</Link>
+                  <Link to={`/Detalle/pelicula/${this.props.id}`} className="link"> Ir a detalle</Link>
               </section>
 
 		        <button className="ver-mas" onClick={() => this.clickVerMenos()} >
