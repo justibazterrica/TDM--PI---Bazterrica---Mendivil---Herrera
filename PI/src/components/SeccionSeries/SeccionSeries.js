@@ -23,19 +23,17 @@ class SeccionSeries extends Component {
      return (
 
        <seccion>
-        <h2 className="alert alert-primary">Popular series this week</h2>
+        <h1 className="alert alert-primary">Popular series this week</h1>
          {this.state.datos === "" ? <h3> Cargando... </h3> : 
-                this.state.datos.map(personaje => (
+                this.state.datos.map(serie => (
                     <CardSerie
                     
-                      id={personaje.id}
-                      img = {personaje.image}
-                      name = {personaje.name} 
-                      estado = {personaje.status}
-                      especie = {personaje.species}
-                      origen = {personaje.origin.name}
-
-                       /> ))}
+                      id={serie.id}
+                      img = {serie.poster_path}
+                      name = {serie.original_name} 
+                      overview = {serie.overview}
+                    
+                    /> ))}
        </seccion>
      )
   }

@@ -6,6 +6,9 @@ import Home from './Screens/Home/Home';
 import NotFound from "./Screens/NotFound/NotFound";
 import Detalle from "./Screens/Detalle/Detalle"
 import {Switch, Route} from "react-router-dom";
+import Series from './Screens/Series/Series';
+import Login from './Screens/Login/Login';
+import Peliculas from './Screens/Peliculas/Peliculas';
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
 
       <Switch>
         <Route path="/" exact={true} component={Home}/>
+        <Route path="/series" component={Series}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/movies" component={Peliculas}/>
         <Route path="*" component={NotFound}/>
         <Route path="/Detalle" component={Detalle}/>
       

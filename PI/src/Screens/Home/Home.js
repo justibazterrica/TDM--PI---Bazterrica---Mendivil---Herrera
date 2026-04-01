@@ -10,8 +10,7 @@ export default function Home() {
         <Buscador />
         <SeccionPeliculas />
         <SeccionSeries />
-    
-
+  
     </React.Fragment>
   )
 }
