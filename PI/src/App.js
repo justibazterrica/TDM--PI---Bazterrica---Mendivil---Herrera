@@ -5,6 +5,9 @@ import React from 'react';
 import Home from './Screens/Home/Home';
 import NotFound from "./Screens/NotFound/NotFound";
 import {Switch, Route} from "react-router-dom";
+import SeccionSeries from './components/SeccionSeries/SeccionSeries';
+import Login from './Screens/Login/Login';
+import SeccionPeliculas from './components/SeccionPeliculas/SeccionPeliculas';
 
 
 function App() {
@@ -15,6 +18,9 @@ function App() {
 
       <Switch>
         <Route path="/" exact={true} component={Home}/>
+        <Route path="/series" component={SeccionSeries}/>
+        <Route path="/login" component={Login}/>
+        <Route path="/peliculas" component={SeccionPeliculas}/>
         <Route path="*" component={NotFound}/>
       
       </Switch>

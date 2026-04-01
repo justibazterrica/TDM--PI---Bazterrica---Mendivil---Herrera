@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
 
-class SerieCard  extends Component {
+class PeliculaCard  extends Component {
     constructor(props) {
         super(props);
          this.state = {
@@ -21,8 +21,8 @@ class SerieCard  extends Component {
 
             <article className='character-card'>
 
-                <img src={"https://image.tmdb.org/t/p/w342/" + this.props.img} alt={this.props.name}  className = "fotos" />
-                <h2>{this.props.name} </h2> 
+                <img src= {"https://image.tmdb.org/t/p/w342/" + this.props.img} alt={this.props.title}  className = "fotos" />
+                <h2>{this.props.title} </h2> 
 
 
                <section className="info">
@@ -40,7 +40,6 @@ class SerieCard  extends Component {
         );
 
     }}
-export default SerieCard;
+export default PeliculaCard;
 
     
-
