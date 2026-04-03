@@ -1,37 +1,16 @@
+import React from "react";
+import Menu from "../Menu/Menu";
+
 function Header() {
   return (
     <header>
-      <div>
+      <div className="header-top">
         <img src="/img/logo.png" alt="logo" className="logo" />
-        <h1>UdeSA Movies</h1>
+        <h1>Series</h1>
       </div>
 
       <nav>
-        <ul class="nav nav-tabs my-4">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/movies">Películas</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/series">Series</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/favorites">Favoritas</a>
-          </li>
-
-          <li class="nav-item ml-auto">
-            <a class="nav-link" href="/register">Registro</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-        </ul>
+        <Menu />
       </nav>
     </header>
   );
