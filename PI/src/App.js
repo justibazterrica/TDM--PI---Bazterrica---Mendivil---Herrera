@@ -10,7 +10,8 @@ import Series from './Screens/Series/Series';
 import Login from './Screens/Login/Login';
 import Peliculas from './Screens/Peliculas/Peliculas';
 import Detalles from './Screens/Detalle/Detalle';
-
+import Crear from "./Screens/Crear/Crear";
+import Favoritos from "./Screens/Favoritos/Favoritos";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/movies" component={Peliculas}/>
         <Route path="/Detalle" component={Detalles}/>
         <Route path="*" component={NotFound}/>
+        <Route path="/crear" component={Crear} />
+        <Route path="/favorites" component={Favoritos} />
       </Switch>
 
       <Footer/> 
