@@ -14,6 +14,7 @@ class Buscador extends Component {
         console.log("Buscando:", this.props);
         this.props.history.push(`/resultados/${this.state.search}`);
     }
+    
     guardarBusqueda(event) {
         this.setState(
             {search: event.target.value}, 

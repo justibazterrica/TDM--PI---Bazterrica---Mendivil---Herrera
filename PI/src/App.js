@@ -12,6 +12,7 @@ import Peliculas from './Screens/Peliculas/Peliculas';
 import Detalles from './Screens/Detalle/Detalle';
 import Crear from "./Screens/Crear/Crear";
 import Favoritos from "./Screens/Favoritos/Favoritos";
+import Resultados from "./Screens/Resultados/Resultados";
 
 function App() {
   return (
@@ -25,9 +26,11 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/movies" component={Peliculas}/>
         <Route path="/Detalle" component={Detalles}/>
-        <Route path="*" component={NotFound}/>
         <Route path="/crear" component={Crear} />
         <Route path="/favorites" component={Favoritos} />
+        <Route path="/Resultados" component={Resultados} />
+        <Route path="*" component={NotFound}/>
+     
       </Switch>
 
       <Footer/> 
