@@ -14,7 +14,7 @@ export default function Serie (props) {
                     <p className="mt-0 mb-0" id="release-date"><strong>Genero: </strong>{props.genero} </p>
                     <BotonFav id={props.id} />
                 </section>
-                <img className="fotos" src={`https://image.tmdb.org/t/p/w500/${props.img}`} alt={props.name} />
+                <img className="img" src={`https://image.tmdb.org/t/p/w500/${props.img}`} alt={props.name} />
             </section>
         </div>
         )
