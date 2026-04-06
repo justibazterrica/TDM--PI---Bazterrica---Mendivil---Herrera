@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './DetalleSerie.css'
-import BotonFav from '../BotonFav/BotonFav'
 import Serie from '../Serie/Serie'
 
 class DetalleSerie extends Component {
@@ -39,7 +38,6 @@ class DetalleSerie extends Component {
                     genero={series.genres ? series.genres.map(g => g.name).join(", ") : "Sin género"}
                     img={series.poster_path}
                 />
-                <BotonFav id={series.id} />
             </div>
         )
     }

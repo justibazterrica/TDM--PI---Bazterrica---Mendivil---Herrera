@@ -33,10 +33,10 @@ export default class BotonFav extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.agregarFav(this.props.id)}>
+        <button onClick={() => this.agregarFav(this.props.id)} className = "botonFav">
           Agregar a favoritos
         </button>
-        <button onClick={() => this.eliminarFav(this.props.id)}>
+        <button onClick={() => this.eliminarFav(this.props.id)} className = "botonFav">
           Eliminar de favoritos
         </button>
       </div>
