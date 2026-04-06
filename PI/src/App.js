@@ -11,7 +11,7 @@ import Login from './Screens/Login/Login';
 import Peliculas from './Screens/Peliculas/Peliculas';
 import Detalles from './Screens/Detalle/Detalle';
 // import Crear from "./Screens/Crear/Crear";
-// import Favoritos from "./Screens/Favoritos/Favoritos";;
+import Favoritos from "./Screens/Favoritos/Favoritos";
 import Resultados from "./Screens/Resultados/Resultados";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <Route path="/movies" component={Peliculas}/>
         <Route path="/Detalle" component={Detalles}/>
         {/* <Route path="/crear" component={Crear} /> */}
-        {/* <Route path="/favorites" component={Favoritos} /> */}
+        <Route path="/favorites" component={Favoritos}/> 
         <Route path="/Resultados" component={Resultados} />
         <Route path="*" component={NotFound}/>
      
