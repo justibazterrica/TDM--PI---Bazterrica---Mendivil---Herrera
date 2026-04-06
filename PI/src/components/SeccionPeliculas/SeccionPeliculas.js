@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardPelicula from "../CardPelicula/CardPelicula"
-//import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
+import "./styles.css"
 
 class SeccionPeliculas extends Component {
 
@@ -22,8 +23,8 @@ class SeccionPeliculas extends Component {
     render() {
      return (
 
-       <section>
-        <h1 className="alert alert-primary">Popular movies this week</h1>
+       <section className ="seccion" >
+       
          {this.state.datos === "" ? <h3> Cargando... </h3> : 
                 this.state.datos.slice(0, 8).map(pelicula => (
                     <CardPelicula

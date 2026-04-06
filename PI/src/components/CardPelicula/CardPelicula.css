@@ -7,8 +7,15 @@
     width: 25%;
     padding: 10px;
 }
+
+.titlo{
+    font-size: 15px;
+    color: black
+}
+
 .fotos{
     width: 100%;
+    border-radius: 8px;
 }
 
 .extra-info.false{
@@ -17,4 +24,9 @@
 
 .extra-info.true{
     display: block;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
 }

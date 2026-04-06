@@ -23,14 +23,16 @@ class SerieCard  extends Component {
             <article className='character-card'>
 
                 <img src={"https://image.tmdb.org/t/p/w342/" + this.props.img} alt={this.props.name}  className = "fotos" />
-                <h2>{this.props.name} </h2> 
+                <h2 className = "titulo">{this.props.name} </h2> 
 
 
                <section className="info">
             
                   <p className= {'extra-info ' + (this.state.verMenos ? 'false' : 'true') }>  {this.props.overview} </p>
-                  <Link to={`/Detalle/serie/${this.props.id}`} className="link"> Ir a detalle</Link>
+          
               </section>
+
+              <Link to={`/Detalle/serie/${this.props.id}`} className="link"> Ir a detalle</Link>
 
 		        <button className="ver-mas" onClick={() => this.clickVerMenos()} >
                   {this.state.verMenos ? "Ver más" : "Ver menos"}

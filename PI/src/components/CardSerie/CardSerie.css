@@ -6,9 +6,16 @@
     align-items: center;
     width: 25%;
     padding: 10px;
+
 }
 .fotos{
     width: 100%;
+     border-radius: 8px;
+}
+
+.titlo{
+    font-size: 15px;
+    color: black
 }
 
 .extra-info.false{
@@ -17,4 +24,9 @@
 
 .extra-info.true{
     display: block;
+}
+
+.link{
+    text-decoration: none;
+    color: black;
 }
