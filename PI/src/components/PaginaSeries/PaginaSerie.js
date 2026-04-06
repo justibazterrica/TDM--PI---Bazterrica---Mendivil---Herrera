@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CardSerie from "../CardSerie/CardSerie"
 
+
 class PaginaSeries extends Component {
     constructor(props) {
         super(props)

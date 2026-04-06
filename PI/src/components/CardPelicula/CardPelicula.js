@@ -35,7 +35,7 @@ class PeliculaCard  extends Component {
                   {this.state.verMenos ? "Ver más" : "Ver menos"}
                 </button>
                 
-        </article>
+            </article>
 
         );
 

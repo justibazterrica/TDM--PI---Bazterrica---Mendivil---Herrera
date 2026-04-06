@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './DetallePelicula.css'
+import BotonFav from '../BotonFav/BotonFav'
 import Pelicula from '../Pelicula/Pelicula'
 
 class DetallePelicula extends Component {
@@ -39,7 +40,9 @@ class DetallePelicula extends Component {
                     genero={peliculas.genres ? peliculas.genres.map(g => g.name).join(", ") : "Sin género"}
                     img={peliculas.poster_path}
                 />
+                <BotonFav id={peliculas.id} />
             </div>
+            
         )
     }
 }
