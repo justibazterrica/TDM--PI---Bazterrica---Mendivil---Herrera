@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./PaginaSerie.css"
 import CardSerie from "../CardSerie/CardSerie"
 
 
@@ -21,8 +22,7 @@ class PaginaSeries extends Component {
 
     render() {
         return (
-            <section>
-                <h1 className="alert alert-primary">Series</h1>
+            <section className="paginaSeries">
                 
                 {this.state.datos.length === 0 ? (
                     <h3> Cargando... </h3>

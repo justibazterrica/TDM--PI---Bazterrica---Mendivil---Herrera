@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default function Serie (props) {
+export default function Pelicula (props) {
     return (
         <div>
             <h2 className="alert alert-warning">{props.name}</h2>
