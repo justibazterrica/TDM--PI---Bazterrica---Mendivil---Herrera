@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CardSerie from "../CardSerie/CardSerie"
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 
 class SeccionSeries extends Component {
 
@@ -22,7 +22,7 @@ class SeccionSeries extends Component {
     render() {
      return (
 
-       <seccion>
+       <section>
         <h1 className="alert alert-primary">Popular series this week</h1>
          {this.state.datos === "" ? <h3> Cargando... </h3> : 
                 this.state.datos.map(serie => (
@@ -34,7 +34,7 @@ class SeccionSeries extends Component {
                       overview = {serie.overview}
                     
                     /> ))}
-       </seccion>
+       </section>
      )
   }
 }
