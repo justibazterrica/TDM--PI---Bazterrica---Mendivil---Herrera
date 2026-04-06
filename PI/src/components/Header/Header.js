@@ -6,7 +6,6 @@ function Header() {
     <header>
       <div className="header-top">
         <img src="/img/logo.png" alt="logo" className="logo" />
-        <h1>Series</h1>
       </div>
 
       <nav>
