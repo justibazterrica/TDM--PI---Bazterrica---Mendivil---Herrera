@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       <div className="header-top">
-        <img src="/img/logo.png" alt="logo" className="logo" />
+        <img src="/img/logo.jpg" alt="logo" className="logo" />
       </div>
 
       <nav>
