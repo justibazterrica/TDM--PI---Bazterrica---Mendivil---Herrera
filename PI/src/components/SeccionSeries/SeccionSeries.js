@@ -25,7 +25,7 @@ class SeccionSeries extends Component {
        <seccion>
         <h1 className="alert alert-primary">Popular series this week</h1>
          {this.state.datos === "" ? <h3> Cargando... </h3> : 
-                this.state.datos.map(serie => (
+                this.state.datos.slice(0, 8).map(serie => (
                     <CardSerie
                     
                       id={serie.id}
