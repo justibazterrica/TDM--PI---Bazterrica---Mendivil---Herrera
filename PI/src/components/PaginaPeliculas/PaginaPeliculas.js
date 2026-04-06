@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardPelicula from "../CardPelicula/CardPelicula"
+import "./PaginaPeliculas.css"
 import {Link} from "react-router-dom"
 
 class PaginaPeliculas extends Component {
@@ -21,9 +22,7 @@ class PaginaPeliculas extends Component {
 
     render() {
      return (
-
-       <section>
-        <h1 className="alert alert-primary">Peliculas</h1>
+        <seccion className="paginaPeliculas">
          {this.state.datos === "" ? <h3> Cargando... </h3> : 
                 this.state.datos.map(pelicula => (
                     <CardPelicula
@@ -34,7 +33,7 @@ class PaginaPeliculas extends Component {
                       overview = {pelicula.overview}
                     
                     /> ))}
-       </section>
+       </seccion>
      )
   }
 }

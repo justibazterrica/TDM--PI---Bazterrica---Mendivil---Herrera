@@ -1,0 +1,20 @@
+.character-card{
+   display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    width: 25%;
+    padding: 10px;
+}
+.fotos{
+    width: 100%;
+}
+
+.extra-info.false{
+    display: none;
+}
+
+.extra-info.true{
+    display: block;
+}
