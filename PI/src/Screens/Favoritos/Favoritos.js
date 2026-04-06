@@ -36,48 +36,48 @@ class Favoritos extends Component {
     //peliculas
     let contenidoPeliculas;
 
-    if (this.state.peliculasFavoritas.length === 0) {
-      contenidoPeliculas = <p>No hay películas favoritas</p>;
-    } else {
-      contenidoPeliculas = (
-        <ul>
-          {this.state.peliculasFavoritas.map((pelicula, idx) => (
-            <li key={idx}>
-              <Link to="/detalle">
-                {pelicula.titulo}
-              </Link>
+    // if (this.state.peliculasFavoritas.length === 0) {
+    //   contenidoPeliculas = <p>No hay películas favoritas</p>;
+    // } else {
+    //   contenidoPeliculas = (
+    //     <ul>
+    //       {this.state.peliculasFavoritas.map((pelicula, idx) => (
+    //         <li key={idx}>
+    //           <Link to="/detalle">
+    //             {pelicula.titulo}
+    //           </Link>
 
-              <button onClick={() => this.eliminarPelicula(pelicula.id)}>
-                Eliminar
-              </button>
-            </li>
-          ))}
-        </ul>
-      );
-    }
+    //           <button onClick={() => this.eliminarPelicula(pelicula.id)}>
+    //             Eliminar
+    //           </button>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   );
+    // }
 
-    //Series
+    // //Series
     let contenidoSeries;
 
-    if (this.state.seriesFavoritas.length === 0) {
-      contenidoSeries = <p>No hay series favoritas</p>;
-    } else {
-      contenidoSeries = (
-        <ul>
-          {this.state.seriesFavoritas.map((serie, idx) => (
-            <li key={idx}>
-              <Link to="/detalle">
-                {serie.titulo}
-              </Link>
+    // if (this.state.seriesFavoritas.length === 0) {
+    //   contenidoSeries = <p>No hay series favoritas</p>;
+    // } else {
+    //   contenidoSeries = (
+    //     <ul>
+    //       {this.state.seriesFavoritas.map((serie, idx) => (
+    //         <li key={idx}>
+    //           <Link to="/detalle">
+    //             {serie.titulo}
+    //           </Link>
 
-              <button onClick={() => this.eliminarSerie(serie.id)}>
-                Eliminar
-              </button>
-            </li>
-          ))}
-        </ul>
-      );
-    }
+    //           <button onClick={() => this.eliminarSerie(serie.id)}>
+    //             Eliminar
+    //           </button>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   );
+    // }
 
     return (
       <main>
@@ -85,12 +85,12 @@ class Favoritos extends Component {
 
         <section>
           <h2>Películas favoritas</h2>
-          {contenidoPeliculas}
+          {/* {contenidoPeliculas} */}
         </section>
 
         <section>
           <h2>Series favoritas</h2>
-          {contenidoSeries}
+          {/* {contenidoSeries} */}
         </section>
       </main>
     );

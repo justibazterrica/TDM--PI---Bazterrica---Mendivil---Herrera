@@ -22,7 +22,7 @@ class PaginaPeliculas extends Component {
     render() {
      return (
 
-       <seccion>
+       <section>
         <h1 className="alert alert-primary">Peliculas</h1>
          {this.state.datos === "" ? <h3> Cargando... </h3> : 
                 this.state.datos.map(pelicula => (
@@ -34,7 +34,7 @@ class PaginaPeliculas extends Component {
                       overview = {pelicula.overview}
                     
                     /> ))}
-       </seccion>
+       </section>
      )
   }
 }

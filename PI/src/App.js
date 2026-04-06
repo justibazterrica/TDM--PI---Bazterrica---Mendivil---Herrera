@@ -10,8 +10,8 @@ import Series from './Screens/Series/Series';
 import Login from './Screens/Login/Login';
 import Peliculas from './Screens/Peliculas/Peliculas';
 import Detalles from './Screens/Detalle/Detalle';
-import Crear from "./Screens/Crear/Crear";
-import Favoritos from "./Screens/Favoritos/Favoritos";
+// import Crear from "./Screens/Crear/Crear";
+// import Favoritos from "./Screens/Favoritos/Favoritos";;
 import Resultados from "./Screens/Resultados/Resultados";
 
 function App() {
@@ -26,12 +26,16 @@ function App() {
         <Route path="/login" component={Login}/>
         <Route path="/movies" component={Peliculas}/>
         <Route path="/Detalle" component={Detalles}/>
-        <Route path="/crear" component={Crear} />
-        <Route path="/favorites" component={Favoritos} />
+        {/* <Route path="/crear" component={Crear} /> */}
+        {/* <Route path="/favorites" component={Favoritos} /> */}
         <Route path="/Resultados" component={Resultados} />
         <Route path="*" component={NotFound}/>
      
       </Switch>
+      {/* <Switch>
+            <Route path="/Detalle/serie/:id" component={DetalleSerie}/>
+            <Route path="/Detalle/pelicula/:id" component={DetallePelicula}/>
+        </Switch> */}
 
       <Footer/> 
 
