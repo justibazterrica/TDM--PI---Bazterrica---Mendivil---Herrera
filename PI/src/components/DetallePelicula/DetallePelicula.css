@@ -13,6 +13,14 @@
     border-radius: 8px;
     width: 30%;
 }
-.botonFav{
+.botonFavtrue{
     margin: 10px;
+    border-radius: 8px;
+    background-color: rgb(61, 61, 255);
+}
+
+.botonFavfalse{
+    margin: 10px;
+    border-radius: 8px;
+    background-color: rgb(148, 148, 255);
 }
