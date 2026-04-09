@@ -26,15 +26,8 @@ class SeccionSeries extends Component {
 
        <section className="seccion" >
       
-         {this.state.datos === "" ? 
-         
-<<<<<<< HEAD
-        <Loader/> : 
+         {this.state.datos === "" ? <Loader/> : 
                 this.state.datos.slice(0, 8).map(serie => (
-=======
-        <h3 > Cargando... </h3> : 
-                this.state.datos.map(serie => (
->>>>>>> 04c7a8cd64fa7cbbffda8e31e11d4a2198eb0ab6
                     <CardSerie 
                     
                       id={serie.id}
