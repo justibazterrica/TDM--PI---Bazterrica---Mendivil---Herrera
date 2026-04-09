@@ -27,13 +27,8 @@ class SeccionPeliculas extends Component {
 
        <section className ="seccion" >
        
-<<<<<<< HEAD
          {this.state.datos === "" ? <Loader/> : 
-                this.state.datos.slice(0, 8).map(pelicula => (
-=======
-         {this.state.datos === "" ? <h3> Cargando... </h3> : 
                 this.state.datos.map(pelicula => (
->>>>>>> 04c7a8cd64fa7cbbffda8e31e11d4a2198eb0ab6
                     <CardPelicula
                     
                       id={pelicula.id}
