@@ -3,7 +3,7 @@ import CardPelicula from "../CardPelicula/CardPelicula"
 import Loader from '../Loader/Loader'
 import {Link} from "react-router-dom"
 import "./styles.css"
-import Loader from '../Loader/Loader'
+
 
 class SeccionPeliculas extends Component {
 
@@ -28,7 +28,7 @@ class SeccionPeliculas extends Component {
        <section className ="seccion" >
        
          {this.state.datos === "" ? <Loader/> : 
-                this.state.datos.slice(0, 8).map(pelicula => (
+                this.state.datos.map(pelicula => (
                     <CardPelicula
                     
                       id={pelicula.id}
