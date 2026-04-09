@@ -14,6 +14,7 @@ class PeliculaCard  extends Component {
       verMenos: !this.state.verMenos
     });
   }
+  
     render (){  
         console.log(this.props);
         
@@ -22,7 +23,9 @@ class PeliculaCard  extends Component {
             <article className='character-card'>
 
                 <img src= {"https://image.tmdb.org/t/p/w342/" + this.props.img} alt={this.props.title}  className = "fotos" />
-                <h2 className = "titulo">{this.props.title} </h2> 
+                <h2 className = "titulo"
+                
+                >{this.props.title} </h2> 
 
 
                <section className="info">

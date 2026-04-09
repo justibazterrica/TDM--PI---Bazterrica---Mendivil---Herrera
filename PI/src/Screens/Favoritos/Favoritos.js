@@ -32,56 +32,63 @@ class Favoritos extends Component {
   }
 
   render() {
-    return (
-      <main>
-        <h1>Favoritos</h1>
 
-        <section>
-          <h2>Películas favoritas</h2>
+  let contenidoPeliculas;
 
-          {
-            this.state.peliculasFavoritas.length === 0
-            ?
-            <p>No hay películas favoritas</p>
-            :
-            <ul>
-              {this.state.peliculasFavoritas.map((pelicula, idx) => (
-                <li key={idx}>
-                  <Link to="/detalle">{pelicula.titulo}</Link>
+  if (this.state.peliculasFavoritas.length === 0) {
+    contenidoPeliculas = <p>No hay películas favoritas</p>;
+  } else {
+    contenidoPeliculas = (
+      <ul>
+        {this.state.peliculasFavoritas.map((pelicula, idx) => (
+          <li key={idx}>
+            <Link to="/detalle">{pelicula.titulo}</Link>
 
-                  <button onClick={() => this.eliminarPelicula(pelicula.id)}>
-                    Eliminar
-                  </button>
-                </li>
-              ))}
-            </ul>
-          }
-        </section>
-
-        <section>
-          <h2>Series favoritas</h2>
-
-          {
-            this.state.seriesFavoritas.length === 0
-            ?
-            <p>No hay series favoritas</p>
-            :
-            <ul>
-              {this.state.seriesFavoritas.map((serie, idx) => (
-                <li key={idx}>
-                  <Link to="/detalle">{serie.titulo}</Link>
-
-                  <button onClick={() => this.eliminarSerie(serie.id)}>
-                    Eliminar
-                  </button>
-                </li>
-              ))}
-            </ul>
-          }
-        </section>
-      </main>
+            <button onClick={() => this.eliminarPelicula(pelicula.id)}>
+              Eliminar
+            </button>
+          </li>
+        ))}
+      </ul>
     );
   }
+
+  let contenidoSeries;
+
+  if (this.state.seriesFavoritas.length === 0) {
+    contenidoSeries = <p>No hay series favoritas</p>;
+  } else {
+    contenidoSeries = (
+      <ul>
+        {this.state.seriesFavoritas.map((serie, idx) => (
+          <li key={idx}>
+            <Link to="/detalle">{serie.titulo}</Link>
+
+            <button onClick={() => this.eliminarSerie(serie.id)}>
+              Eliminar
+            </button>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <main>
+      <h1>Favoritos</h1>
+
+      <section>
+        <h2>Películas favoritas</h2>
+        {contenidoPeliculas}
+      </section>
+
+      <section>
+        <h2>Series favoritas</h2>
+        {contenidoSeries}
+      </section>
+    </main>
+  );
+}
 }
 
 export default Favoritos;
