@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CardSerie from "../CardSerie/CardSerie"
 import {Link} from "react-router-dom"
 import "./styles.css"
+import Loader from '../Loader/Loader'
 
 class SeccionSeries extends Component {
 
@@ -27,7 +28,7 @@ class SeccionSeries extends Component {
       
          {this.state.datos === "" ? 
          
-        <h3 > Cargando... </h3> : 
+        <Loader/> : 
                 this.state.datos.slice(0, 8).map(serie => (
                     <CardSerie 
                     

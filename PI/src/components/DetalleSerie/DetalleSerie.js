@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './DetalleSerie.css'
+import Loader from '../Loader/Loader'
 import Serie from '../Serie/Serie'
 
 class DetalleSerie extends Component {
@@ -25,7 +26,7 @@ class DetalleSerie extends Component {
     render() {
         const { series } = this.state
         if (!series) {
-            return <h3>Cargando...</h3>
+            return <Loader/>
         }
         return (
             <div>

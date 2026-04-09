@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardPelicula from "../CardPelicula/CardPelicula"
+import Loader from "../Loader/Loader"
 import "./PaginaPeliculas.css"
 import {Link} from "react-router-dom"
 
@@ -23,7 +24,7 @@ class PaginaPeliculas extends Component {
     render() {
      return (
         <seccion className="paginaPeliculas">
-         {this.state.datos === "" ? <h3> Cargando... </h3> : 
+         {this.state.datos === "" ? <Loader/> : 
                 this.state.datos.map(pelicula => (
                     <CardPelicula
                     

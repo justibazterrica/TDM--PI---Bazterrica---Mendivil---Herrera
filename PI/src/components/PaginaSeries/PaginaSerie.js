@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import "./PaginaSerie.css"
+
 import CardSerie from "../CardSerie/CardSerie"
+import Loader from '../Loader/Loader'
 
 
 class PaginaSeries extends Component {
@@ -25,7 +27,7 @@ class PaginaSeries extends Component {
             <section className="paginaSeries">
                 
                 {this.state.datos.length === 0 ? (
-                    <h3> Cargando... </h3>
+                    <Loader/>
                 ) : (
                     this.state.datos.map(serie => (
                         <CardSerie 

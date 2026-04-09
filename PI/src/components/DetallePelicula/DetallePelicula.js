@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './DetallePelicula.css'
+import Loader from '../Loader/Loader'
 import Pelicula from '../Pelicula/Pelicula'
 
 class DetallePelicula extends Component {
@@ -25,13 +26,13 @@ class DetallePelicula extends Component {
     render() {
         const { peliculas } = this.state
         if (!peliculas) {
-            return <h3>Cargando...</h3>
+            return <Loader/>
         }
         return (
             <div>
                 <Pelicula
                     id={peliculas.id}
-                    name={peliculas.name}
+                    name={peliculas.title}
                     calificacion={peliculas.vote_average}
                     estreno={peliculas.first_air_date}
                     duracion={peliculas.runtime}
