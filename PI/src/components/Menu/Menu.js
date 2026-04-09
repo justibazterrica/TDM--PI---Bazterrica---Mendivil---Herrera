@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Menu() {
   const opciones = [
     { name: "Home", path: "/" },
-    { name: "Películas", path: "/movies" },
+    { name: "Películas", path: "/peliculas" },
     { name: "Series", path: "/series" },
-    { name: "Favoritos", path: "/favorites" },
+    { name: "Favoritos", path: "/favoritos" },
     { name: "Crear", path: "/crear" },
     { name: "Login", path: "/login" }
   ];
