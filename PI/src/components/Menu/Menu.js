@@ -12,6 +12,7 @@ function Menu() {
   ];
 
   return (
+    <section>
     <ul className="nav nav-tabs my-4">
       {opciones.map((opcion, idx) => (
         <li className="nav-item" key={idx}>
@@ -21,6 +22,7 @@ function Menu() {
         </li>
       ))}
     </ul>
+    </section>
   );
 }
 

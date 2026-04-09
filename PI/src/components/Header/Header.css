@@ -1,5 +1,6 @@
-.logo {
-    width: 40px;
-    border-radius: 50px;
-    border: 1px solid black;
+.header-top{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
 }
