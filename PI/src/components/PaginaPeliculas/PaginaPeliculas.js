@@ -2,41 +2,89 @@ import React, { Component } from 'react'
 import CardPelicula from "../CardPelicula/CardPelicula"
 import Loader from "../Loader/Loader"
 import "./PaginaPeliculas.css"
-import {Link} from "react-router-dom"
 
 class PaginaPeliculas extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { datos: []}
+        this.state = { 
+            datos: [],
+            paginaSiguiente: 1,
+            valorFiltro: ""
+        }
     }
 
     componentDidMount() {
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c")
-        .then(response => response.json())
-        .then(data => {
-            this.setState({ datos: data.results })
-        })
-        .catch(error => console.log(error))
+        this.cargarMas();
+    }
+
+    cargarMas() { 
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c&page=${this.state.paginaSiguiente}`)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ 
+                    datos: this.state.datos.concat(data.results),
+                    paginaSiguiente: this.state.paginaSiguiente + 1
+                })
+            })
+            .catch(error => console.log(error))
     }
 
 
+    evitarSubmit(evento) {
+        evento.preventDefault();
+    }
+
+    filtro(evento) {
+        this.setState({
+            valorFiltro: evento.target.value
+        });
+    }
+
     render() {
-     return (
-        <seccion className="paginaPeliculas">
-         {this.state.datos === "" ? <Loader/> : 
-                this.state.datos.map(pelicula => (
-                    <CardPelicula
-                    
-                      id={pelicula.id}
-                      img = {pelicula.poster_path}
-                      title = {pelicula.original_title} 
-                      overview = {pelicula.overview}
-                    
-                    /> ))}
-       </seccion>
-     )
-  }
+
+        let peliculasFiltradas = this.state.datos.filter(pelicula => 
+            pelicula.original_title.toLowerCase().includes(this.state.valorFiltro.toLowerCase())
+        );
+
+        return (
+            <div className="paginaPeliculas">
+                
+                <form onSubmit={(e) => this.evitarSubmit(e)} className="form-filtro">
+                    <input 
+                        type="text" 
+                        placeholder="Filtrar películas..." 
+                        onChange={(e) => this.filtro(e)}
+                        value={this.state.valorFiltro}
+                    />
+                </form>
+
+                <section className="Peliculas">
+                    {this.state.datos.length === 0 ? (
+                        <Loader />
+                    ) : (
+                        peliculasFiltradas.length > 0 ? (
+                            peliculasFiltradas.map(pelicula => (
+                                <CardPelicula
+                                    key={pelicula.id}
+                                    id={pelicula.id}
+                                    img={pelicula.poster_path}
+                                    title={pelicula.original_title}
+                                    overview={pelicula.overview}
+                                />
+                            ))
+                        ) : (
+                            <h3>No hay resultados para tu búsqueda</h3>
+                        )
+                    )}
+                </section>
+
+                <button className="verMas" onClick={() => this.cargarMas()}>
+                    Más peliculas
+                </button>
+            </div>
+        )
+    }
 }
 
 export default PaginaPeliculas
