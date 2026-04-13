@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Resultados from "../../Screens/Resultados/Resultados";
+
+import "./styles.css"
 
 class Buscador extends Component {
     constructor(props) {
@@ -9,11 +13,15 @@ class Buscador extends Component {
         }
     }
 
-    onSubmit(event) {
+    evitarSubmit(event) {
         event.preventDefault();
-        console.log("Buscando:", this.props);
-        this.props.history.push(`/resultados/${this.state.search}`);
+        this.props.history.push(`/Resultados/${this.state.search}`);
     }
+
+    onSubmit(event) {
+        console.log("Buscando:", this.props);
+    }
+
     guardarBusqueda(event) {
         this.setState(
             {search: event.target.value}, 
@@ -24,12 +32,10 @@ class Buscador extends Component {
   render() {
     return (
       <div>
-        <form onsubmit = {(event) => this.onSubmit(event)}>
-
-          <button type="submit">Buscar  </button>
-          <input on change = {(event) => this.guardarBusqueda(event)}/>
-
-        </form>
+        <form className = "buscador" onSubmit = {(event) => this.evitarSubmit(event)}>
+          <input onChange = {(event) => this.guardarBusqueda(event)}/>
+           <button className="boton" type="submit">Buscar  </button>
+        </form >
       </div>
     )
   }

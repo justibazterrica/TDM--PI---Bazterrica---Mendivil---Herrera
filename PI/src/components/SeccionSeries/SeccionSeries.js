@@ -25,11 +25,12 @@ class SeccionSeries extends Component {
      return (
 
        <section className="seccion" >
-      
+
          {this.state.datos === "" ? 
          
         <Loader/> : 
                 this.state.datos.map(serie => (
+
                     <CardSerie 
                     
                       id={serie.id}
