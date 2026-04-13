@@ -1,0 +1,32 @@
+.Peliculas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.paginaPeliculas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.verMas {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-filtro {
+    margin: 20px 0;
+    text-align: center;
+}
+.form-filtro input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
