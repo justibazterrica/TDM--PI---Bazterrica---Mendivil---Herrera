@@ -35,7 +35,7 @@ class PaginaPeliculas extends Component {
         evento.preventDefault();
     }
 
-    filtro(evento) {
+    controlarCambios(evento) {
         this.setState({
             valorFiltro: evento.target.value
         });
@@ -54,7 +54,7 @@ class PaginaPeliculas extends Component {
                     <input 
                         type="text" 
                         placeholder="Filtrar películas..." 
-                        onChange={(e) => this.filtro(e)}
+                        onChange={(e) => this.controlarCambios(e)}
                         value={this.state.valorFiltro}
                     />
                 </form>

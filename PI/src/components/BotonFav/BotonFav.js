@@ -33,11 +33,8 @@ export default class BotonFav extends Component {
   render() {
     return (
       <div>
-        <button onClick={() => this.agregarFav(this.props.id)} className =  {'botonFav' + (this.state.favoritos ? 'false' : 'true') }>
-          Agregar a favoritos
-        </button>
-        <button onClick={() => this.eliminarFav(this.props.id)} className = {'botonFav' + (this.state.favoritos ? 'true' : 'false') }>
-          Eliminar de favoritos
+        <button onClick={() => (this.state.favoritos? this.eliminarFav(this.props.id) : this.agregarFav(this.props.id))} className =  {'botonFav' + (this.state.favoritos ? 'false' : 'true') }>
+          {this.state.favoritos ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
         </button>
       </div>
     )

@@ -30,7 +30,7 @@ class PaginaSerie extends Component {
             .catch(error => console.log(error))
     }
 
-        filtro(evento) {
+        controlarCambios(evento) {
         this.setState({
             valorFiltro: evento.target.value
         });
@@ -48,7 +48,7 @@ class PaginaSerie extends Component {
                     <input 
                         type="text" 
                         placeholder="Buscar series..." 
-                        onChange={(e) => this.filtro(e)}
+                        onChange={(e) => this.controlarCambios(e)}
                         value={this.state.valorFiltro}
                     />
                 </form>
