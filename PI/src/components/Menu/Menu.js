@@ -1,15 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 function Menu() {
-  const opciones = [
+
+  let usuario = cookies.get("user-auth-cookie");
+
+  let opciones = [
     { name: "Home", path: "/" },
     { name: "Películas", path: "/peliculas" },
     { name: "Series", path: "/series" },
-    { name: "Favoritos", path: "/favoritos" },
-    { name: "Crear", path: "/crear" },
-    { name: "Login", path: "/login" }
-  ];
+    ];
+
+  if (usuario) {
+    opciones.push({ name: "Favoritos", path: "/favoritos" });
+
+  } else {
+    opciones.push({ name: "Crear", path: "/crear" });
+    opciones.push({ name: "Login", path: "/login" });
+  }
 
   return (
     <section>
