@@ -38,6 +38,7 @@ class SeccionPeliculas extends Component {
                     
                     /> ))}
        </section>
+       
      )
   }
 }

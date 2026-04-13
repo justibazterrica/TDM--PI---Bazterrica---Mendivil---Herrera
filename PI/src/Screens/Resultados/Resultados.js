@@ -1,24 +1,20 @@
 import React, { Component } from "react";
-import CardPelicula from "../../components/CardPelicula/CardPelicula";
-import CardSerie from "../../components/CardSerie/CardSerie";
-import Loader from "../../components/Loader/Loader";
+import ResultadosBusqueda from "../../components/ResultadosBusqueda/ResultadosBusqueda";
 
-class Resultados extends Component {
+export default class Resultados extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      resultados: ""
+      resultados: this.props.match.params.search,
+      tipo: this.props.match.params.value,
     };
   }
-
-  render(){
-    const search = this.props.match.params.search;
-    return (
-      <div>
-        <h1> Resultados para: {search}</h1> 
-      </div>
-    )
+  render() {
+  return (
+    <div>
+      <h1>Resultados de: {this.state.resultados}</h1>
+      <ResultadosBusqueda search={this.state.resultados} tipo={this.state.tipo} />
+    </div>
+  )
   }
 }
-
-export default Resultados;

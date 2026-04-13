@@ -27,7 +27,7 @@ function App() {
         <Route path="/peliculas" component={Peliculas}/>
         <Route path="/crear" component={Crear} />
         <Route path="/favoritos" component={Favoritos}/>
-        <Route path="/Resultados/:search" component={Resultados} />
+        <Route path="/Resultados/:value/:search" component={Resultados} />
         <Route path="/Detalle/serie/:id" component={DetalleSerie}/>
         <Route path="/Detalle/pelicula/:id" component={DetallePelicula}/>
         <Route path="*" component={NotFound}/>
