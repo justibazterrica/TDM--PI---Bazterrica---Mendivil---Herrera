@@ -33,7 +33,7 @@ class Buscador extends Component {
     return (
       <div>
         <form className = "buscador" onSubmit = {(event) => this.evitarSubmit(event)}>
-          <input onChange = {(event) => this.guardarBusqueda(event)}/>
+          <input  onChange = {(event) => this.guardarBusqueda(event)}/>
            <button className="boton" type="submit">Buscar  </button>
         </form >
       </div>

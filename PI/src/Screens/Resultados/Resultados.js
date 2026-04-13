@@ -15,7 +15,7 @@ class Resultados extends Component {
     const search = this.props.match.params.search;
     return (
       <div>
-        Resultados para: {search}
+        <h1> Resultados para: {search}</h1> 
       </div>
     )
   }

@@ -10,7 +10,7 @@ import Login from './Screens/Login/Login';
 import Peliculas from './Screens/Peliculas/Peliculas';
 import DetallePelicula from './components/DetallePelicula/DetallePelicula';
 import DetalleSerie from './components/DetalleSerie/DetalleSerie';
-// import Crear from "./Screens/Crear/Crear";
+import Crear from "./Screens/Crear/Crear";
 import Favoritos from "./Screens/Favoritos/Favoritos";
 import Resultados from "./Screens/Resultados/Resultados";
 
@@ -25,7 +25,7 @@ function App() {
         <Route path="/series" component={Series}/>
         <Route path="/login" component={Login}/>
         <Route path="/peliculas" component={Peliculas}/>
-        {/* <Route path="/crear" component={Crear} /> */}
+        <Route path="/crear" component={Crear} />
         <Route path="/favoritos" component={Favoritos}/>
         <Route path="/Resultados/:search" component={Resultados} />
         <Route path="/Detalle/serie/:id" component={DetalleSerie}/>

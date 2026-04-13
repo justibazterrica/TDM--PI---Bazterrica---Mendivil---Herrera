@@ -4,3 +4,11 @@
     color: white;
     border: none;
 }
+
+.buscador{
+    display: flex;
+}
+
+input{
+    width: 95%;
+}
