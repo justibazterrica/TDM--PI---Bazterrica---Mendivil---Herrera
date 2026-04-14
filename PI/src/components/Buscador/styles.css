@@ -3,6 +3,8 @@
     background-color: green;
     color: white;
     border: none;
+    border-radius: 8px;
+    margin: 3px;
 }
 
 .buscador{
@@ -10,5 +12,10 @@
 }
 
 input{
-    width: 95%;
+    width: 90%;
+    margin: 5px;
+}
+
+select{
+    margin: 5px;
 }
