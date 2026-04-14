@@ -3,6 +3,8 @@ import './DetalleSerie.css'
 import Loader from '../Loader/Loader'
 import Serie from '../Serie/Serie'
 
+
+
 class DetalleSerie extends Component {
     constructor(props) {
         super(props)
@@ -22,6 +24,7 @@ class DetalleSerie extends Component {
         })
         .catch(error => console.log(error))
     }
+
 
     render() {
         const { series } = this.state

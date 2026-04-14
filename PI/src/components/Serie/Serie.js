@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import BotonFav from '../BotonFav/BotonFav'
+import Cookies from 'universal-cookie'
+
+const cookies = new Cookies();
 
 export default function Serie (props) {
+    
+    let usuario = cookies.get("user-auth-cookie");
+    
     return (
         <div>
             <h2 className="alert alert-warning">{props.name}</h2>
@@ -12,7 +18,7 @@ export default function Serie (props) {
                     <p><strong>Descripcion:</strong></p>
                     <p className="description">{props.sinopsis}</p>
                     <p className="mt-0 mb-0" id="release-date"><strong>Genero: </strong>{props.genero} </p>
-                    <BotonFav id={props.id} />
+                    { usuario ? <BotonFav id={props.id} /> : null }
                 </section>
                 <img className="img" src={`https://image.tmdb.org/t/p/w500/${props.img}`} alt={props.name} />
             </section>
