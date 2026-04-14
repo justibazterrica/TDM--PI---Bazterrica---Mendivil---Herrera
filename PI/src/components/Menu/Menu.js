@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Cookies from "universal-cookie";
+import Cookies from "universal-cookie"
 
-const cookies = new Cookies();
+const cookies = new Cookies()
 
 function Menu() {
 

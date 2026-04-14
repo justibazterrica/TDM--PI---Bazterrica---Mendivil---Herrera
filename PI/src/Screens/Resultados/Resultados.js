@@ -15,10 +15,11 @@ class Resultados extends Component {
     const search = this.props.match.params.search;
     return (
       <div>
-        <h1> Resultados para: {search}</h1> 
+        <h1> Resultados para: {search} </h1> 
       </div>
     )
   }
 }
+
 
 export default Resultados;
