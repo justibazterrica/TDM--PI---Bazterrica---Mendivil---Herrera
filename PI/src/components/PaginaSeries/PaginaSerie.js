@@ -47,7 +47,7 @@ class PaginaSerie extends Component {
                 <form onSubmit={(e) => e.preventDefault()} className="form-filtro">
                     <input 
                         type="text" 
-                        placeholder="Buscar series..." 
+                        placeholder="Filtrar series..." 
                         onChange={(e) => this.controlarCambios(e)}
                         value={this.state.valorFiltro}
                     />

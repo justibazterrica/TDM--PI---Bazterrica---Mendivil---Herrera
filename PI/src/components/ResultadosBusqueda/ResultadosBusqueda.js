@@ -13,7 +13,7 @@ export default class ResultadosBusqueda extends Component {
     }
 
     componentDidMount() {
-        console.log("entre al didmount");
+        console.log(this.props.tipo);
         
         fetch(`https://api.themoviedb.org/3/search/${this.props.tipo}?query=${this.props.search}&api_key=7af9e68f00d96b306cc0ab2e52ceaf9c`)
         .then(response => response.json())
