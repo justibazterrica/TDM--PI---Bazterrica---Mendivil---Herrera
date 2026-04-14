@@ -24,3 +24,9 @@
     border-radius: 8px;
     background-color: rgb(148, 148, 255);
 }
+
+.texto-alternativo{
+    font-size: 14px;
+    color: rgb(148, 148, 255);
+    margin: 10px;
+}
