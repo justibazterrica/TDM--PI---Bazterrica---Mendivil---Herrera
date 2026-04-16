@@ -8,21 +8,39 @@ class Login extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            email: "",
-            password: "",
+            emaillog: "",
+            passwordlog: "",
             
         }
     }
-
     
-    evitarSubmit = (evento) => {
-        evento.preventDefault()
+   Submit (evento){
 
+      evento.preventDefault()
+
+      const usersStorage = localStorage.getItem("users")
+
+      if (usersStorage === null  || usersStorage.length == 0) {
+        return ("Las creedencuales son invalidas")
+      } else {
         
+        let userParseado = JSON.parse(usersStorage)
+        let usersFiltrado = userParseado.filter(user => user.email === this.state.emaillog)
 
+      if (usersFiltrado.length > 0) {
+        if(usersFiltrado[0].password === this.state.passwordlog){
+          
+          cookies.set("user-auth-cookie", this.state.emaillog)
 
-        this.props.history.push(``);
-    }
+          this.props.history.push(``);
+        }
+
+       } else{
+          return("el usuario ingresado no existe")
+      }
+    
+      }}
+    
 
     render() {
 
@@ -42,7 +60,9 @@ class Login extends React.Component {
         <input className= "inputp" /> 
       </form>
 
-      <button onClick = {(event) => this.evitarSubmit(event)} > Log in </button>
+      
+      <button onClick = {(event) => this.Submit(event)} > Log in </button>
+      
       </section>
 
     )}
