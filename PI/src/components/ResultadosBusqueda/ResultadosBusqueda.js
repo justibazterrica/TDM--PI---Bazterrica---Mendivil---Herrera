@@ -24,8 +24,9 @@ export default class ResultadosBusqueda extends Component {
   render() {
 
     return (
+
         <div>
-            <section className ="seccion" >
+        {this.state.tipo === "movie"? (<section className ="seccion" >
                     {this.state.resultados.length === 0 ? <Loader/> : 
                             
                     this.state.resultados.map(pelicula => (
@@ -37,10 +38,7 @@ export default class ResultadosBusqueda extends Component {
                                 overview = {pelicula.overview}
                                 
                                 /> ))}
-            </section>
-
-
-             <section className="seccion" >
+            </section>) : (<section className="seccion" >
                 {this.state.resultados.length === 0 ? <Loader/> : 
                         this.state.resultados.map(serie => (
 
@@ -52,7 +50,7 @@ export default class ResultadosBusqueda extends Component {
                             overview = {serie.overview}
                             
                             /> ))}
-            </section>
+            </section>) }
 
         </div>
     )
