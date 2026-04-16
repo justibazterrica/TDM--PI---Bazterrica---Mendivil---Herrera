@@ -4,29 +4,33 @@ export default class BotonFav extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            favoritos: false
+            favoritos: false,
+            tipo: this.props.tipo
         }}
         agregarFav(id) {
-            let storage = localStorage.getItem("favoritos");
-            let favoritos = JSON.parse(storage);
-            if (favoritos === null) {
+            let storage
+            {this.state.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
+            
+            if (storage === null) {
                 let primerFav = [id];
                 let primerFavString = JSON.stringify(primerFav);
-                localStorage.setItem("favoritos", primerFavString);
+                {this.state.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", primerFavString) : localStorage.setItem("favoritosSeries", primerFavString)}
             } 
             else {
+                let favoritos = JSON.parse(storage);
                 favoritos.push(id);
-                localStorage.setItem("favoritos", JSON.stringify(favoritos));
+                {this.state.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(favoritos)) : localStorage.setItem("favoritosSeries", JSON.stringify(favoritos))}
             }
             this.setState({favoritos: true})
         }
         eliminarFav(id) {
-            let storage = localStorage.getItem("favoritos");
+            let storage
+            {this.state.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
             let favoritos = JSON.parse(storage);
             let nuevosFavs = favoritos.filter(function(fav) {
                 return fav !== id;
             });
-            localStorage.setItem("favoritos", JSON.stringify(nuevosFavs));
+            {this.state.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(nuevosFavs)) : localStorage.setItem("favoritosSeries", JSON.stringify(nuevosFavs))}
             this.setState({favoritos: false})
         }
 
