@@ -41,6 +41,7 @@ class DetalleSerie extends Component {
                     sinopsis={series.overview}
                     genero={series.genres ? series.genres.map(g => g.name).join(", ") : "Sin género"}
                     img={series.poster_path}
+                    tipo="tv"
                 />
             </div>
         )

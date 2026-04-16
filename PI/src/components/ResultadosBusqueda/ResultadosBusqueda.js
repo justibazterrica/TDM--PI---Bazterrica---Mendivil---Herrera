@@ -8,7 +8,7 @@ export default class ResultadosBusqueda extends Component {
         super(props)
         this.state = {
             resultados: [],
-            tipo: ""
+            tipo: "movie"
         }
     }
 
