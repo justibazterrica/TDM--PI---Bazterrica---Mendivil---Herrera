@@ -1,6 +1,7 @@
 import React from 'react'
 import Cookies from "universal-cookie";
 import "./styles.css"
+import {withRouter} from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -14,14 +15,15 @@ class Login extends React.Component {
         }
     }
     
-   Submit (evento){
+   onSubmit (evento){
 
       evento.preventDefault()
 
-      const usersStorage = localStorage.getItem("users")
+      const usersStorage = localStorage.getItem("Usuarios")
 
       if (usersStorage === null  || usersStorage.length == 0) {
-        return ("Las creedencuales son invalidas")
+         this.setState({ error: "Las credenciales son inválidas" });
+         return;
       } else {
         
         let userParseado = JSON.parse(usersStorage)
@@ -32,15 +34,17 @@ class Login extends React.Component {
           
           cookies.set("user-auth-cookie", this.state.emaillog)
 
-          this.props.history.push(``);
+          this.props.history.push("/");
         }
 
-       } else{
-          return("el usuario ingresado no existe")
-      }
-    
+       } else { this.setState({ error: "Contraseña incorrecta" })}
+     
       }}
     
+    logout () {
+        cookies.remove("user-auth-cookie");
+        this.setState({ emaillog: "", passwordlog: "" });
+    }
 
     render() {
 
@@ -50,23 +54,27 @@ class Login extends React.Component {
 
       <h1>Log in: </h1>
 
-      <form> 
+
+      <form onSubmit = {(event) => this.onSubmit(event)} > 
+
         <label> Email: </label>
-        <input className = "inpute"/>
-      </form>
+        <input className="inpute" value={this.state.emaillog} onChange={(e) => this.setState({ emaillog: e.target.value })}/>
 
-      <form> 
+      
         <label> Password: </label>
-        <input className= "inputp" /> 
+        <input className="inputp" type="password" value={this.state.passwordlog} onChange={(e) => this.setState({ passwordlog: e.target.value })}/>
+
+
+        <button type="submit" > Log in </button>
+      
       </form>
 
-      
-      <button onClick = {(event) => this.Submit(event)} > Log in </button>
-      
+      {this.state.error !== "" && <p>{this.state.error}</p>}
+
       </section>
 
     )}
 
 }
 
-export default Login
+export default withRouter (Login);

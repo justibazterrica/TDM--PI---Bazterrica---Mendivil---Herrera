@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Cookies from "universal-cookie";
+import { withRouter } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -45,7 +46,7 @@ class Crear extends Component {
 
         usuariosGuardados.push(usuarioNuevo);
 
-        localStorage.setItem("Usuarios", JSON.stringify(usuariosGuardados));
+        localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
 
         cookies.set("user-auth-cookie", this.state.email);
 
@@ -101,4 +102,4 @@ class Crear extends Component {
     }
 }
 
-export default Crear;
+export default withRouter(Crear);
