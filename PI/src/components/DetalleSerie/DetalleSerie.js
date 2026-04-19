@@ -23,6 +23,8 @@ class DetalleSerie extends Component {
             this.setState({ series: data })
         })
         .catch(error => console.log(error))
+        
+
     }
 
 
@@ -41,11 +43,13 @@ class DetalleSerie extends Component {
                     sinopsis={series.overview}
                     genero={series.genres ? series.genres.map(g => g.name).join(", ") : "Sin género"}
                     img={series.poster_path}
-                    tipo="tv"
                 />
+                
             </div>
         )
+        
     }
+    
 }
 
 export default DetalleSerie

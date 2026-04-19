@@ -40,11 +40,6 @@ class Login extends React.Component {
        } else { this.setState({ error: "Contraseña incorrecta" })}
      
       }}
-    
-    logout () {
-        cookies.remove("user-auth-cookie");
-        this.setState({ emaillog: "", passwordlog: "" });
-    }
 
     render() {
 

@@ -16,6 +16,7 @@ function Menu() {
 
   if (usuario) {
     opciones.push({ name: "Favoritos", path: "/favoritos" });
+    opciones.push({ name: "Log out", path: "/logout" });
 
   } else {
     opciones.push({ name: "Crear", path: "/crear" });

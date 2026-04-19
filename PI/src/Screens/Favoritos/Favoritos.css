@@ -1,0 +1,18 @@
+.cardFav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 10px;
+    margin: 0;
+}
+.PeliculasFav, .SeriesFav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.eliminar {
+    width: 100px;
+}

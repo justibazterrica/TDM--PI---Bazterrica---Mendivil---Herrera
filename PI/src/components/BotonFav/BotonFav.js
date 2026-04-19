@@ -5,23 +5,23 @@ export default class BotonFav extends Component {
         super(props)
         this.state = {
             favoritos: false,
-            tipo: this.props.tipo
         }}
         agregarFav(id) {
             let storage
-            {this.state.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
+            {this.props.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
             
             if (storage === null) {
                 let primerFav = [id];
                 let primerFavString = JSON.stringify(primerFav);
-                {this.state.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", primerFavString) : localStorage.setItem("favoritosSeries", primerFavString)}
+                {this.props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", primerFavString) : localStorage.setItem("favoritosSeries", primerFavString)}
             } 
             else {
                 let favoritos = JSON.parse(storage);
                 favoritos.push(id);
-                {this.state.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(favoritos)) : localStorage.setItem("favoritosSeries", JSON.stringify(favoritos))}
+                {this.props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(favoritos)) : localStorage.setItem("favoritosSeries", JSON.stringify(favoritos))}
             }
             this.setState({favoritos: true})
+            console.log(this.props.tipo)
         }
         eliminarFav(id) {
             let storage

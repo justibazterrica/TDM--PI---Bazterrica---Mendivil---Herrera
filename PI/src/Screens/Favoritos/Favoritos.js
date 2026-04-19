@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import CardPelicula from "../../components/CardPelicula/CardPelicula";
+import CardSerie from "../../components/CardSerie/CardSerie";
+import "./Favoritos.css";
 import { Link } from "react-router-dom";
 
 class Favoritos extends Component {
@@ -12,6 +15,7 @@ class Favoritos extends Component {
   }
 
   componentDidMount() {
+
     let storagePeliculas = localStorage.getItem("favoritosPeliculas");
     let storageSeries = localStorage.getItem("favoritosSeries");
 
@@ -30,6 +34,7 @@ class Favoritos extends Component {
             this.setState({
               peliculasFavoritas: peliculasRecuperadas
             });
+            console.log(this.state.peliculasFavoritas)
           })
           .catch(error => console.log(error));
       });
@@ -43,6 +48,7 @@ class Favoritos extends Component {
             this.setState({
               seriesFavoritas: seriesRecuperadas
             });
+            console.log(this.state.seriesFavoritas)
           })
           .catch(error => console.log(error));
       });
@@ -83,19 +89,24 @@ class Favoritos extends Component {
     contenidoPeliculas = <p>No hay películas favoritas</p>;
   } else {
     contenidoPeliculas = (
-      <ul>
+      <section className="PeliculasFav">
         {this.state.peliculasFavoritas.map((pelicula, idx) => (
-          <li key={idx}>
-            <Link to={`/Detalle/pelicula/${pelicula.id}`}>
-              {pelicula.title}
-            </Link>
+          <section className="cardFav">
+                                <CardPelicula
+                                    key={idx}
+                                    id={pelicula.id}
+                                    img={pelicula.poster_path}
+                                    title={pelicula.original_title}
+                                    overview={pelicula.overview}
+                                />
 
-            <button onClick={() => this.eliminarPelicula(pelicula.id)}>
+              <button onClick={() => this.eliminarPelicula(pelicula.id)} className="eliminar">
               Eliminar
             </button>
-          </li>
+            
+          </section>
         ))}
-      </ul>
+      </section>
      );
    }
 
@@ -103,19 +114,23 @@ class Favoritos extends Component {
     contenidoSeries = <p>No hay series favoritas</p>;
   } else {
     contenidoSeries = (
-      <ul>
+      <section className="SeriesFav">
         {this.state.seriesFavoritas.map((serie, idx) => (
-          <li key={idx}>
-            <Link to={`/Detalle/serie/${serie.id}`}>
-              {serie.name}
-          </Link>
+          <section className="cardFav">
+                                <CardSerie
+                                    key={idx}
+                                    id={serie.id}
+                                    img={serie.poster_path}
+                                    title={serie.original_name}
+                                    overview={serie.overview}
+                                />
 
-            <button onClick={() => this.eliminarSerie(serie.id)}>
+            <button onClick={() => this.eliminarSerie(serie.id)} className="eliminar">
               Eliminar
             </button>
-          </li>
+          </section>
         ))}
-      </ul>
+      </section>
     );
   }
 
