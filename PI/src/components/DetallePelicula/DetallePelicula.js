@@ -24,7 +24,9 @@ class DetallePelicula extends Component {
     }
 
     render() {
-        const { peliculas } = this.state
+        
+        const peliculas = this.state.peliculas
+
         if (!peliculas) {
             return <Loader/>
         }
