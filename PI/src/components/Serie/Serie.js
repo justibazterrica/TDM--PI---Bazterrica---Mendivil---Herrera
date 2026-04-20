@@ -19,7 +19,7 @@ export default function Serie (props) {
                     <p><strong>Descripcion:</strong></p>
                     <p className="description">{props.sinopsis}</p>
                     <p className="mt-0 mb-0" id="release-date"><strong>Genero: </strong>{props.genero} </p>
-                    { usuario ? <BotonFav id={props.id} /> : <p className = "texto-alternativo"><Link to="/crear">Crear cuenta</Link> o <Link to="/login">iniciar sesion</Link> para agregar a favoritos</p> }
+                    { usuario ? <BotonFav id={props.id} tipo= "tv" /> : <p className = "texto-alternativo"><Link to="/crear">Crear cuenta</Link> o <Link to="/login">iniciar sesion</Link> para agregar a favoritos</p> }
                 </section>
                 <img className="img" src={`https://image.tmdb.org/t/p/w500/${props.img}`} alt={props.name} />
             </section>

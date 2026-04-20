@@ -13,6 +13,7 @@ import DetalleSerie from './components/DetalleSerie/DetalleSerie';
 import Crear from "./Screens/Crear/Crear";
 import Favoritos from "./Screens/Favoritos/Favoritos";
 import Resultados from "./Screens/Resultados/Resultados";
+import Logout from './Screens/Logout/Logout';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/Resultados/:value/:search" component={Resultados} />
         <Route path="/Detalle/serie/:id" component={DetalleSerie}/>
         <Route path="/Detalle/pelicula/:id" component={DetallePelicula}/>
+        <Route path="/logout" component={Logout}/>
         <Route path="*" component={NotFound}/>
      
       </Switch>

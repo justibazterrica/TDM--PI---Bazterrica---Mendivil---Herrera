@@ -39,7 +39,6 @@ class DetallePelicula extends Component {
                     sinopsis={peliculas.overview}
                     genero={peliculas.genres ? peliculas.genres.map(g => g.name).join(", ") : "Sin género"}
                     img={peliculas.poster_path}
-                    tipo="movie"
                 />
             </div>
             
