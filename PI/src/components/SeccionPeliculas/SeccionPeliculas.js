@@ -30,7 +30,8 @@ class SeccionPeliculas extends Component {
          {this.state.datos === "" ? <Loader/> : 
                 this.state.datos.map(pelicula => (
                     <CardPelicula
-                    
+                      
+                      key = {pelicula.id}
                       id={pelicula.id}
                       img = {pelicula.poster_path}
                       title = {pelicula.original_title} 

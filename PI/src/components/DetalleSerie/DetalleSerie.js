@@ -36,6 +36,7 @@ class DetalleSerie extends Component {
         return (
             <div>
                 <Serie
+                    key = {series.id}
                     id={series.id}
                     name={series.name}
                     calificacion={series.vote_average}

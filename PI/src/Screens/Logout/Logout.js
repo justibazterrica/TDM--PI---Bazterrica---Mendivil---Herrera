@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Cookies from "universal-cookie"
+import "./Logout.css";
 
 const cookies = new Cookies()
 
@@ -15,12 +16,13 @@ export default class Logout extends Component {
     logout () {
         cookies.remove("user-auth-cookie");
         this.setState({ email: "", password: "" });
+        this.props.history.push("/");
     }
   render() {
     return (
-      <div>
-        <button onClick={() => this.logout()}>Logout</button>
-      </div>
+      <section className='logout'>
+        <button onClick={() => this.logout()} >Logout</button>
+      </section>
     )
   }
 }

@@ -31,6 +31,7 @@ class DetallePelicula extends Component {
         return (
             <div>
                 <Pelicula
+                    key = {peliculas.id}
                     id={peliculas.id}
                     name={peliculas.title}
                     calificacion={peliculas.vote_average}
