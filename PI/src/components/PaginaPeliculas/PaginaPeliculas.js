@@ -64,9 +64,9 @@ class PaginaPeliculas extends Component {
                         <Loader />
                     ) : (
                         peliculasFiltradas.length > 0 ? (
-                            peliculasFiltradas.map(pelicula => (
+                            peliculasFiltradas.map((pelicula, idx) => (
                                 <CardPelicula
-                                    key={pelicula.id}
+                                    key={idx}
                                     id={pelicula.id}
                                     img={pelicula.poster_path}
                                     title={pelicula.original_title}

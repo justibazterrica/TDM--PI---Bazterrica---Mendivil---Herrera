@@ -29,7 +29,7 @@ class DetalleSerie extends Component {
 
 
     render() {
-        
+
         const series = this.state.series
 
         if (!series) {

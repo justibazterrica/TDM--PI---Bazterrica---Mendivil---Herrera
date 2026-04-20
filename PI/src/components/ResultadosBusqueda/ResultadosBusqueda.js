@@ -31,10 +31,10 @@ export default class ResultadosBusqueda extends Component {
         {this.state.tipo === "movie"? (<section className ="seccion" >
                     {this.state.resultados.length === 0 ? <Loader/> : 
                             
-                    this.state.resultados.map(pelicula => (
+                    this.state.resultados.map((pelicula, idx) => (
                                 <CardPelicula
                                 
-                                key = {pelicula.id}
+                                key = {idx}
                                 id={pelicula.id}
                                 img = {pelicula.poster_path}
                                 title = {pelicula.original_title} 
@@ -43,11 +43,11 @@ export default class ResultadosBusqueda extends Component {
                                 /> ))}
             </section>) : (<section className="seccion" >
                 {this.state.resultados.length === 0 ? <Loader/> : 
-                        this.state.resultados.map(serie => (
+                        this.state.resultados.map((serie, idx) => (
 
                             <CardSerie 
                             
-                            key = {serie.id}
+                            key = {idx}
                             id={serie.id}
                             img = {serie.poster_path}
                             name = {serie.original_name} 

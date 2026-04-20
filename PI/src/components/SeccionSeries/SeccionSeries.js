@@ -29,11 +29,11 @@ class SeccionSeries extends Component {
          {this.state.datos === "" ? 
          
         <Loader/> : 
-                this.state.datos.map(serie => (
+                this.state.datos.map((serie, idx) => (
 
                     <CardSerie 
                     
-                      key = {serie.id}
+                      key = {idx}
                       id={serie.id}
                       img = {serie.poster_path}
                       name = {serie.original_name} 
