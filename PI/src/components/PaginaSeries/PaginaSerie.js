@@ -63,7 +63,7 @@ class PaginaSerie extends Component {
                                     key={serie.id}
                                     id={serie.id}
                                     img={serie.poster_path}
-                                    title={serie.original_name}
+                                    name={serie.original_name}
                                     overview={serie.overview}
                                 />
                             ))

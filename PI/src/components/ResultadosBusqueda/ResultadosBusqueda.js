@@ -8,7 +8,7 @@ export default class ResultadosBusqueda extends Component {
         super(props)
         this.state = {
             resultados: [],
-            tipo: "movie"
+            tipo: this.props.tipo
         }
     }
 
@@ -22,7 +22,9 @@ export default class ResultadosBusqueda extends Component {
     }
 
   render() {
-
+    console.log(this.state.resultados);
+    console.log(this.props);
+    
     return (
 
         <div>
@@ -32,6 +34,7 @@ export default class ResultadosBusqueda extends Component {
                     this.state.resultados.map(pelicula => (
                                 <CardPelicula
                                 
+                                key = {pelicula.id}
                                 id={pelicula.id}
                                 img = {pelicula.poster_path}
                                 title = {pelicula.original_title} 
@@ -44,6 +47,7 @@ export default class ResultadosBusqueda extends Component {
 
                             <CardSerie 
                             
+                            key = {serie.id}
                             id={serie.id}
                             img = {serie.poster_path}
                             name = {serie.original_name} 

@@ -33,6 +33,7 @@ class SeccionSeries extends Component {
 
                     <CardSerie 
                     
+                      key = {serie.id}
                       id={serie.id}
                       img = {serie.poster_path}
                       name = {serie.original_name} 

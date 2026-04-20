@@ -11,7 +11,7 @@ class Login extends React.Component {
         this.state = {
             emaillog: "",
             passwordlog: "",
-            
+            error:""
         }
     }
     
@@ -35,9 +35,9 @@ class Login extends React.Component {
           cookies.set("user-auth-cookie", this.state.emaillog)
 
           this.props.history.push("/");
-        }
+        } else { this.setState({ error: "Contraseña incorrecta" })}
 
-       } else { this.setState({ error: "Contraseña incorrecta" })}
+       } 
      
       }}
 
@@ -64,7 +64,7 @@ class Login extends React.Component {
       
       </form>
 
-      {this.state.error !== "" && <p>{this.state.error}</p>}
+     <p>{this.state.error}</p>
 
       </section>
 
