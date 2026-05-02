@@ -58,9 +58,9 @@ class PaginaSerie extends Component {
                         <Loader />
                     ) : (
                         seriesFiltradas.length > 0 ? (
-                            seriesFiltradas.map(serie => (
+                            seriesFiltradas.map((serie, idx) => (
                                 <CardSerie
-                                    key={serie.id}
+                                    key={idx}
                                     id={serie.id}
                                     img={serie.poster_path}
                                     name={serie.original_name}
