@@ -30,6 +30,7 @@ class DetalleSerie extends Component {
 
     render() {
         const { series } = this.state
+        
         if (!series) {
             return <Loader/>
         }
