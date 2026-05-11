@@ -13,6 +13,7 @@ export default class Logout extends Component {
             
         }
     }
+    
     logout () {
         cookies.remove("user-auth-cookie");
         this.setState({ email: "", password: "" });

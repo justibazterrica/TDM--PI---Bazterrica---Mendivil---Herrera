@@ -1,36 +1,29 @@
-import React, { Component } from 'react'
+import React, { Component, use } from 'react'
 import './DetallePelicula.css'
 import Loader from '../Loader/Loader'
 import Pelicula from '../Pelicula/Pelicula'
+import { useEffect, useState } from 'react'
 
-class DetallePelicula extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            peliculas: null
-        }
-    }
+function DetallePelicula(props) {
+    const [peliculas, setPeliculas] = useState()
 
-    componentDidMount() {
-        
-        const id = this.props.match.params.id
-        
+    useEffect(() => {
+
+        const id = props.match.params.id
+
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c&language=es-ES`)
         .then(response => response.json())
-        .then(data => {
-            this.setState({ peliculas: data })
-        })
+        .then(data => setPeliculas(data))
         .catch(error => console.log(error))
-    }
+    
+    })
 
-    render() {
-        
-        const peliculas = this.state.peliculas
+    if (peliculas.length === 0)
+             { <Loader/>}
 
-        if (!peliculas) {
-            return <Loader/>
-        }
-        return (
+    else
+    return (
+
             <div>
                 <Pelicula
                     key = {peliculas.id}
@@ -45,8 +38,11 @@ class DetallePelicula extends Component {
                 />
             </div>
             
-        )
-    }
+
+
+    )
+
 }
 
-export default DetallePelicula
+export default DetallePelicula;
+
