@@ -26,7 +26,7 @@ function ResultadosBusqueda(props) {
         <div>
             {tipo === "movie" ? (
                 <section className="seccion">
-                    {resultados.length === 0 ? <Loader /> : resultados.map((pelicula, idx) => (
+                    {resultados === null ? <Loader /> : resultados.map((pelicula, idx) => (
                             <CardPelicula
                                 key={idx}
                                 id={pelicula.id}
@@ -38,7 +38,7 @@ function ResultadosBusqueda(props) {
                     }
                 </section>
             ) : (<section className="seccion">
-                    {resultados.length === 0 ? <Loader /> : resultados.map((serie, idx) => (
+                    {resultados === null ? <Loader /> : resultados.map((serie, idx) => (
                             <CardSerie
                                 key={idx}
                                 id={serie.id}
