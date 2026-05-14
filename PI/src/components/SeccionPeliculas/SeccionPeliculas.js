@@ -1,34 +1,29 @@
-import React, { Component } from 'react'
+import {useState, useRef, useEffect} from 'react'
 import CardPelicula from "../CardPelicula/CardPelicula"
 import Loader from '../Loader/Loader'
 import {Link} from "react-router-dom"
 import "./styles.css"
 
 
-class SeccionPeliculas extends Component {
+function SeccionPeliculas (props){
 
-    constructor(props) {
-        super(props)
-        this.state = { datos: ""}
-    }
+    const [datos, setDatos] = useState([]);
 
-    componentDidMount() {
+    useEffect(() => {
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c")
         .then(response => response.json())
         .then(data => {
-            this.setState({ datos: data.results })
+            setDatos(data.results)
         })
         .catch(error => console.log(error))
-    }
+    }, [])
 
-
-    render() {
      return (
 
        <section className ="seccion" >
        
-         {this.state.datos === "" ? <Loader/> : 
-                this.state.datos.map((pelicula, idx) => (
+         {datos === "" ? <Loader/> : 
+                datos.map((pelicula, idx) => (
                     <CardPelicula
                       
                       key = {idx}
@@ -42,6 +37,5 @@ class SeccionPeliculas extends Component {
        
      )
   }
-}
 
 export default SeccionPeliculas

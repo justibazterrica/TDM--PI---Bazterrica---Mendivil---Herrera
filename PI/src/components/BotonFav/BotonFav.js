@@ -1,46 +1,41 @@
-import React, { Component } from 'react'
+import { setState, useState, useRef, useEffect} from "react";
 
-export default class BotonFav extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            favoritos: false,
-        }}
-        agregarFav(id) {
+export default function BotonFav (props) {
+    const [favoritos, setFavoritos] = useState(false);
+
+        function agregarFav(id) {
             let storage
-            {this.props.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
+            {props.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
             
             if (storage === null) {
                 let primerFav = [id];
                 let primerFavString = JSON.stringify(primerFav);
-                {this.props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", primerFavString) : localStorage.setItem("favoritosSeries", primerFavString)}
+                {props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", primerFavString) : localStorage.setItem("favoritosSeries", primerFavString)}
             } 
             else {
                 let favoritos = JSON.parse(storage);
                 favoritos.push(id);
-                {this.props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(favoritos)) : localStorage.setItem("favoritosSeries", JSON.stringify(favoritos))}
+                {props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(favoritos)) : localStorage.setItem("favoritosSeries", JSON.stringify(favoritos))}
             }
-            this.setState({favoritos: true})
-            console.log(this.props.tipo)
+            setFavoritos(true);
+            console.log(props.tipo)
         }
-        eliminarFav(id) {
+        function eliminarFav(id) {
             let storage
-            {this.state.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
+            {props.tipo === "movie" ? storage = localStorage.getItem("favoritosPeliculas") : storage = localStorage.getItem("favoritosSeries")}
             let favoritos = JSON.parse(storage);
             let nuevosFavs = favoritos.filter(function(fav) {
                 return fav !== id;
             });
-            {this.state.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(nuevosFavs)) : localStorage.setItem("favoritosSeries", JSON.stringify(nuevosFavs))}
-            this.setState({favoritos: false})
+            {props.tipo === "movie" ? localStorage.setItem("favoritosPeliculas", JSON.stringify(nuevosFavs)) : localStorage.setItem("favoritosSeries", JSON.stringify(nuevosFavs))}
+            setFavoritos(false);
         }
 
-  render() {
-    return (
+  return (
       <div>
-        <button onClick={() => (this.state.favoritos? this.eliminarFav(this.props.id) : this.agregarFav(this.props.id))} className =  {'botonFav' + (this.state.favoritos ? 'false' : 'true') }>
-          {this.state.favoritos ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
+        <button onClick={() => (favoritos? eliminarFav(props.id) : agregarFav(props.id))} className =  {'botonFav' + (favoritos ? 'false' : 'true') }>
+          {favoritos ? 'Eliminar de favoritos' : 'Agregar a favoritos'}
         </button>
       </div>
     )
-  }
 }
