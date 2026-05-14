@@ -18,7 +18,7 @@ function DetallePelicula(props) {
     
     })
 
-    if (peliculas.length === 0)
+    if (peliculas == null)
              { <Loader/>}
 
     else
