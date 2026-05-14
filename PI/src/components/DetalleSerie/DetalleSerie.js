@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect} from 'react'
 import './DetalleSerie.css'
 import Loader from '../Loader/Loader'
 import Serie from '../Serie/Serie'

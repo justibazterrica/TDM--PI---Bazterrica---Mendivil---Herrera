@@ -12,7 +12,7 @@ function ResultadosBusqueda(props) {
 
         console.log(props.tipo);
 
-        fetch(`https://api.themoviedb.org/3/search/${props.tipo}?query=${props.search}&api_key=7af9e68f00d96b306cc0ab2e52ceaf9c`)
+        fetch(`https://api.themoviedb.org/3/search/${props.tipo}?query=${props.resultados}&api_key=7af9e68f00d96b306cc0ab2e52ceaf9c`)
             .then(response => response.json())
             .then(data => setResultados(data.results))
             .catch(error => console.log(error));
