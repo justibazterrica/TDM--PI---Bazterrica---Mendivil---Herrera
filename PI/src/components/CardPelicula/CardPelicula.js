@@ -1,50 +1,41 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
+import { useEffect, useState } from 'react'
 
-class PeliculaCard  extends Component {
-    constructor(props) {
-        super(props);
-         this.state = {
-      verMenos: false
-    };
-    }       
 
-    clickVerMenos() {
-    this.setState({
-      verMenos: !this.state.verMenos
-    });
-  }
-  
-    render (){  
-       
-        
-        return(
+function CardPelicula(props) {
+    const [VerMenos, setVerMenos] = useState(false)
 
-            <article className='character-card'>
+    function clickVerMenos() {
+        setVerMenos(!VerMenos)}
 
-                <img src= {"https://image.tmdb.org/t/p/w342/" + this.props.img} alt={this.props.title}  className = "fotos" />
-                <h2 className = "titulo"
-                
-                >{this.props.title} </h2> 
+    return(
+
+        <article className='character-card'>
+
+             <img src= {"https://image.tmdb.org/t/p/w342/" + props.img} alt={props.title}  className = "fotos" />
+            
+            <h2 className = "titulo">{props.title} </h2> 
 
 
                <section className="info">
             
-                  <p className= {'extra-info ' + (this.state.verMenos ? 'false' : 'true') }>  {this.props.overview} </p>
+                  <p className= {'extra-info ' + (VerMenos ? 'false' : 'true') }>  {props.overview} </p>
                  
               </section>
 
-                 <Link to={`/Detalle/pelicula/${this.props.id}`} className="link"> Ir a detalle</Link>
+                 <Link to={`/Detalle/pelicula/${props.id}`} className="link"> Ir a detalle</Link>
 
 		        <button className="ver-mas" onClick={() => this.clickVerMenos()} >
-                  {this.state.verMenos ? "Ver más" : "Ver menos"}
+                  {VerMenos ? "Ver más" : "Ver menos"}
                 </button>
                 
-            </article>
 
-        );
+        </article>    ) 
+  
 
-    }}
-export default PeliculaCard;
+}
 
-    
+export default CardPelicula;
+
+
