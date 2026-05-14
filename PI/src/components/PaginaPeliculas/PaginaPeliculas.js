@@ -1,66 +1,53 @@
-import React, { Component } from 'react'
+import { setState, useState, useRef, useEffect} from "react";
 import CardPelicula from "../CardPelicula/CardPelicula"
 import Loader from "../Loader/Loader"
 import "./PaginaPeliculas.css"
 
-class PaginaPeliculas extends Component {
+function PaginaPeliculas (props){
 
-    constructor(props) {
-        super(props)
-        this.state = { 
-            datos: [],
-            paginaSiguiente: 1,
-            valorFiltro: ""
-        }
-    }
+    const [datos, setDatos] = useState([]);
+    const [paginaSiguiente, setPaginaSiguiente] = useState(1);
+    const [valorFiltro, setValorFiltro] = useState("");
 
-    componentDidMount() {
-        this.cargarMas();
-    }
+    useEffect(() => { cargarMas(); }, []);
 
-    cargarMas() { 
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c&page=${this.state.paginaSiguiente}`)
+
+    function cargarMas() { 
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=7af9e68f00d96b306cc0ab2e52ceaf9c&page=${paginaSiguiente}`)
             .then(response => response.json())
             .then(data => {
-                this.setState({ 
-                    datos: this.state.datos.concat(data.results),
-                    paginaSiguiente: this.state.paginaSiguiente + 1
-                })
+                setDatos (datos.concat(data.results)) ;
+                setPaginaSiguiente(paginaSiguiente + 1);
             })
             .catch(error => console.log(error))
     }
 
 
-    evitarSubmit(evento) {
+    function evitarSubmit(evento) {
         evento.preventDefault();
     }
 
-    controlarCambios(evento) {
-        this.setState({
-            valorFiltro: evento.target.value
-        });
-    }
+    function controlarCambios(evento) {
+        setValorFiltro(evento.target.value)}
 
-    render() {
-
-        let peliculasFiltradas = this.state.datos.filter(pelicula => 
-            pelicula.original_title.toLowerCase().includes(this.state.valorFiltro.toLowerCase())
+    let peliculasFiltradas = datos.filter(pelicula => 
+            pelicula.original_title.toLowerCase().includes(valorFiltro.toLowerCase())
         );
 
         return (
             <div className="paginaPeliculas">
                 
-                <form onSubmit={(e) => this.evitarSubmit(e)} className="form-filtro">
+                <form onSubmit={(e) => evitarSubmit(e)} className="form-filtro">
                     <input 
                         type="text" 
                         placeholder="Filtrar películas..." 
-                        onChange={(e) => this.controlarCambios(e)}
-                        value={this.state.valorFiltro}
+                        onChange={(e) => controlarCambios(e)}
+                        value={valorFiltro}
                     />
                 </form>
 
                 <section className="Peliculas">
-                    {this.state.datos.length === 0 ? (
+                    {setDatos.length === 0 ? (
                         <Loader />
                     ) : (
                         peliculasFiltradas.length > 0 ? (
@@ -79,12 +66,11 @@ class PaginaPeliculas extends Component {
                     )}
                 </section>
 
-                <button className="verMas" onClick={() => this.cargarMas()}>
+                <button className="verMas" onClick={() => cargarMas()}>
                     Más peliculas
                 </button>
             </div>
         )
     }
-}
 
 export default PaginaPeliculas
