@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Cookies from "universal-cookie";
-import "./styles.css"
-import {withRouter} from "react-router-dom";
+import "./styles.css";
+import { withRouter } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -11,59 +11,75 @@ function Login(props) {
   const [passwordlog, setPasswordLog] = useState("");
   const [error, setError] = useState("");
 
-  function onSubmit (evento){
+  function onSubmit(evento) {
+    evento.preventDefault();
 
-      evento.preventDefault()
+    const usersStorage = localStorage.getItem("Usuarios");
 
-      const usersStorage = localStorage.getItem("Usuarios")
+    if (usersStorage === null || usersStorage.length === 0) {
+      setError("Las credenciales son inválidas");
+      return;
+    }
 
-      if (usersStorage === null  || usersStorage.length == 0) {
-         setError("Las credenciales son inválidas");
-         return;
+    let userParseado = JSON.parse(usersStorage);
+
+    let usersFiltrado = userParseado.filter(
+      (user) => user.email === emaillog
+    );
+
+    if (usersFiltrado.length > 0) {
+
+      if (usersFiltrado[0].password === passwordlog) {
+
+        cookies.set("user-auth-cookie", emaillog);
+
+        props.history.push("/");
+
       } else {
-        
-        let userParseado = JSON.parse(usersStorage)
-        let usersFiltrado = userParseado.filter(user => user.email === emaillog)
 
-      if (usersFiltrado.length > 0) {
-        if(usersFiltrado[0].password === passwordlog){
-          
-          cookies.set("user-auth-cookie", emaillog)
+        setError("Contraseña incorrecta");
 
-          props.history.push("/");
-        } else { setError("Contraseña incorrecta")}
+      }
 
-       } 
-     
-      }}
+    } else {
 
+      setError("Usuario no encontrado");
 
-      return (
+    }
+  }
 
-        <section>
+  return (
+    <section>
 
-      <h1>Log in: </h1>
+      <h1>Log in:</h1>
 
+      <form onSubmit={onSubmit}>
 
-      <form onSubmit = {(event) => this.onSubmit(event)} > 
+        <label>Email:</label>
 
-        <label> Email: </label>
-        <input className="inpute" value={props.emaillog} onChange={(e) => this.setState({ emaillog: e.target.value })}/>
+        <input
+          className="inpute"
+          value={emaillog}
+          onChange={(e) => setEmailLog(e.target.value)}
+        />
 
-      
-        <label> Password: </label>
-        <input className="inputp" type="password" value={props.passwordlog} onChange={(e) => this.setState({ passwordlog: e.target.value })}/>
+        <label>Password:</label>
 
+        <input
+          className="inputp"
+          type="password"
+          value={passwordlog}
+          onChange={(e) => setPasswordLog(e.target.value)}
+        />
 
-        <button type="submit" > Log in </button>
-      
+        <button type="submit">Log in</button>
+
       </form>
 
-      <p>{props.error}</p>
+      <p>{error}</p>
 
-      </section>
-      )}
+    </section>
+  );
+}
 
 export default withRouter(Login);
-
-    

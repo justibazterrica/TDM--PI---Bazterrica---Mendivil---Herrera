@@ -4,6 +4,7 @@ import "./Logout.css";
 
 const cookies = new Cookies()
 
+
 export default class Logout extends Component {
       constructor(props) {
         super(props)
