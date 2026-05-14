@@ -1,22 +1,18 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import Cookies from "universal-cookie";
 import { withRouter } from "react-router-dom";
 
 const cookies = new Cookies();
 
-class Crear extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: "",
-            password: "",
-            error: ""
-        };
-    }
+function Crear(props) {
 
-    evitarSubimit(event) {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    
+    function evitarSubimit(event) {
         event.preventDefault();
-
+   
         let usuariosGuardados = localStorage.getItem("Usuarios");
 
         if (usuariosGuardados === null) {
@@ -26,71 +22,68 @@ class Crear extends Component {
         }
 
         let usuarioExistente = usuariosGuardados.filter((usuario) => {
-            return usuario.email === this.state.email;
+            return usuario.email === email;
         });
 
         if (usuarioExistente.length > 0) {
-            this.setState({ error: "El email ya está en uso" });
+            setError("El email ya está en uso");
             return;
-        }
+        } 
 
-        if (this.state.password.length < 6) {
-            this.setState({ error: "La contraseña debe tener al menos 6 caracteres" });
+        if (password.length < 6) {
+            setError("La contraseña debe tener al menos 6 caracteres");
             return;
         }
 
         let usuarioNuevo = {
-            email: this.state.email,
-            password: this.state.password
+            email: email,
+            password:password
         };
-
+      
         usuariosGuardados.push(usuarioNuevo);
 
         localStorage.setItem("usuarios", JSON.stringify(usuariosGuardados));
 
-        cookies.set("user-auth-cookie", this.state.email);
+        cookies.set("user-auth-cookie", email);
 
-        this.setState({
-            email: "",
-            password: "",
-            error: ""
-        });
+        setEmail("");
+        setPassword("");
+        setError("");
 
-        this.props.history.push("/");
+        props.history.push("/");
     }
 
-    controlarEmail(event) {
-        this.setState({ email: event.target.value });
+    function controlarEmail(event) {
+        setEmail(event.target.value );
     }
 
-    controlarPassword(event) {
-        this.setState({ password: event.target.value });
+    function controlarPassword(event) {
+        setPassword(event.target.value);
     }
 
-    render() {
         let mensajeError = null;
 
-        if (this.state.error !== "") {
-            mensajeError = <p>{this.state.error}</p>;
+        if (error !== "") {
+            mensajeError = <p>{error}</p>;
         }
 
         return (
             <div>
                 <h2>Crear Cuenta:</h2>
 
-                <form onSubmit={(event) => this.evitarSubimit(event)}>
+                <form onSubmit={evitarSubimit}>
                     <input
                         type="email"
                         placeholder="Email"
-                        value={this.state.email}
-                        onChange={(event) => this.controlarEmail(event)}
+                        value={email}
+                        onChange={controlarEmail}
                     />
 
                     <input
                         type="password"
                         placeholder="Contraseña"
-                        value={this.state.password}
-                        onChange={(event) => this.controlarPassword(event)}
+                        value={password}
+                        onChange={controlarPassword}
                     />
 
                     <button type="submit">Crear cuenta</button>
@@ -100,6 +93,6 @@ class Crear extends Component {
             </div>
         );
     }
-}
 
 export default withRouter(Crear);
+
