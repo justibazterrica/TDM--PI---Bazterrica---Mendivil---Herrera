@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from "react";
 import BotonFav from '../BotonFav/BotonFav'
 import Cookies from 'universal-cookie'
 import {Link} from 'react-router-dom'
